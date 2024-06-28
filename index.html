@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">SignUp Form</h1>
+      <h2 class="successful-message">Your registration was successful</h2>
+
+      <div class="progress-bar">
+        <p class="progress-bar-step step-1">1</p>
+        <p class="progress-bar-step step-2">2</p>
+        <p class="progress-bar-step step-3">3</p>
+        <p class="progress-bar-step step-4">4</p>
+        <p class="progress-bar-step step-5">5</p>
+      </div>
+
+      <form action="#" method="GET" class="form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            pattern="^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ]{2,}$"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="mail">Email</label>
+          <input
+            type="email"
+            name="mail"
+            id="mail"
+            pattern="^[\w\.\-]+@([\w\-]+\.)+[\w\-]{2,4}$"
+            placeholder="user@gmail.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            minlength="12"
+            maxlength="13"
+            pattern="^\+38\d{10}$"
+            placeholder="+38"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password-1">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password-1"
+            minlength="6"
+            maxlength="16"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password-2">Password</label>
+          <input
+            type="password"
+            name="passwordRepeat"
+            id="password-2"
+            minlength="6"
+            maxlength="16"
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}"
+            required
+          />
+        </div>
+
+        <div class="form-group form-group-btns">
+          <button type="reset">Reset</button>
+          <button type="submit" class="form-group-btns-sign-in">Sign In</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
