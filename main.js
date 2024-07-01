@@ -1,47 +1,102 @@
 let form = document.forms[0],
+  formPassword = document.forms[1],
+  formAdress = document.forms[2],
+  basicInfoContainer = document.querySelector('.basic-info-container')
+  passwordContainer = document.querySelector('.password-container'),
+  adressContainer = document.querySelector('.adress-container'),
   title = document.querySelector('.title'),
   progressBar = document.querySelector('.progress-bar'),
-  stepOne = document.querySelector('.step-1'),
-  stepTwo = document.querySelector('.step-2'),
-  stepThree = document.querySelector('.step-3'),
-  stepFour = document.querySelector('.step-4'),
-  stepFive = document.querySelector('.step-5'),
-  signInBtn = document.querySelector('.form-group-btns-sign-in'),
+  stepOneBasic = document.querySelector('.step-1'),
+  stepOnePassword = document.querySelector('.step-1-password'),
+  stepTwoPassword = document.querySelector('.step-2-password'),
+  stepOneAdress = document.querySelector('.step-1-adress'),
+  stepTwoAdress = document.querySelector('.step-2-adress'),
+  stepThreeAdress = document.querySelector('.step-3-adress'),
+  stepToPasswordBtn = document.querySelector('.form-group-btns-to-password'),
+  stepToBasicInfoBtn = document.querySelector('.form-group-btns-to-basic')
+  stepToAdressBtn = document.querySelector('.form-group-btns-to-adress')
+  stepFromAdressToPasswordBtn = document.querySelector('.form-group-btns-from-adress-to-password')
+  successfulContainer = document.querySelector('.container-successful')
   successfulMessage = document.querySelector('.successful-message')
 
-form.addEventListener('input', () => {
+  function showValidFirstStep() {
 
-  if(!form.name.checkValidity()) {
-    stepOne.classList.remove('progress-bar-step-valid')
-  } else {
-    stepOne.classList.add('progress-bar-step-valid')
-  }
-  form.name.reportValidity()
+    form.name.addEventListener('input', () => {
+      if(form.name.checkValidity()) {
+        form.name.setCustomValidity('Type in the correct value')
+      } else {
+        form.name.setCustomValidity('')
+      }
+      if(form.mail.checkValidity()) {
+        form.mail.setCustomValidity('Type in the correct value')
+      } else {
+        form.mail.setCustomValidity('')
+      }
+      
+      form.reportValidity()
+    })
 
-  if(!form.mail.checkValidity()) {
-    stepTwo.classList.remove('progress-bar-step-valid')
-  } else {
-    stepTwo.classList.add('progress-bar-step-valid')
+    if(form.checkValidity()) {
+      stepOneBasic.classList.add('progress-bar-step-valid')
+      stepOnePassword.classList.add('progress-bar-step-valid')
+    } else {
+      stepOneBasic.classList.remove('progress-bar-step-valid')
+      stepOnePassword.classList.remove('progress-bar-step-valid')
+    }
   }
 
-  if(!form.phone.checkValidity()) {
-    stepThree.classList.remove('progress-bar-step-valid')
-  } else {
-    stepThree.classList.add('progress-bar-step-valid')
-  }
+  form.addEventListener('input', () => {
+    showValidFirstStep()
+  })
 
-  if(!form.password.checkValidity()) {
-    stepFour.classList.remove('progress-bar-step-valid')
-  } else {
-    stepFour.classList.add('progress-bar-step-valid')
-  }
+  stepToPasswordBtn.addEventListener('click', () => {
+    if(form.checkValidity()) {
+      basicInfoContainer.style.display = 'none'
+      passwordContainer.style.display = 'block'
+    } else {
+      return
+    }
+  })
 
-  if(!form.passwordRepeat.checkValidity()) {
-    stepFive.classList.remove('progress-bar-step-valid')
-  } else {
-    stepFive.classList.add('progress-bar-step-valid')
+  stepToBasicInfoBtn.addEventListener('click', () => {
+    passwordContainer.style.display = 'none'
+    basicInfoContainer.style.display = 'block'
+  })
+
+  function checkValidPassvord() {
+    formPassword.passwordRepeat.addEventListener('input', () => {
+      if(formPassword.passwordRepeat.value != formPassword.password.value) {
+        formPassword.passwordRepeat.setCustomValidity('Passwords must be identical')
+        formPassword.password.setCustomValidity('Passwords must be identical')
+
+        stepTwoPassword.classList.remove('progress-bar-step-valid')
+      } else {
+        formPassword.passwordRepeat.setCustomValidity('')
+        formPassword.password.setCustomValidity('')
+
+        showValidFirstStep()
+        stepOnePassword.classList.add('progress-bar-step-valid')
+        stepTwoPassword.classList.add('progress-bar-step-valid')
+      }
+    })
   }
-})
+  
+  checkValidPassvord()
+
+  stepToAdressBtn.addEventListener('click', () => {
+
+    if(formPassword.checkValidity()) {
+      passwordContainer.style.display = 'none'
+      adressContainer.style.display = 'block'
+    } else {
+      return
+    }
+  })
+  
+  stepFromAdressToPasswordBtn.addEventListener('click', () => {
+    adressContainer.style.display = 'none'
+    passwordContainer.style.display = 'block'
+  })
 
 form.phone.addEventListener('input', () => {
   const pattern = /^\+38\d{10}$/
@@ -53,23 +108,29 @@ form.phone.addEventListener('input', () => {
   }
 })
 
-form.passwordRepeat.addEventListener('input', () => {
-  if(form.passwordRepeat.value != form.password.value) {
-    form.passwordRepeat.setCustomValidity('Passwords must be identical')
-    form.password.setCustomValidity('Passwords must be identical')
-  } else {
-    form.passwordRepeat.setCustomValidity('')
-    form.password.setCustomValidity('')
-  }
-})
+function checkValidAdress() {
+    stepOneAdress.classList.add('progress-bar-step-valid')
+    stepTwoAdress.classList.add('progress-bar-step-valid')
 
-form.addEventListener('submit', (e) => {
+  formAdress.addEventListener('input', () => {
+    if(formAdress.checkValidity()) {
+      stepThreeAdress.classList.add('progress-bar-step-valid')
+    } else {
+      stepThreeAdress.classList.remove('progress-bar-step-valid')
+    }
+  })
+}
+
+checkValidAdress()
+
+formAdress.addEventListener('submit', (e) => {
   e.preventDefault()
 
-  if(form.checkValidity()) {
+  if(formAdress.checkValidity()) {
+    successfulContainer.style.display = 'block'
     successfulMessage.style.display = 'block'
     title.style.display = 'none'
     progressBar.style.display = 'none'
-    form.style.display = 'none'
+    adressContainer.style.display = 'none'
   }
 })

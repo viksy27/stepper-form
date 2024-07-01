@@ -6,34 +6,56 @@
 }
 
 body {
-  height: 100vh;
-  padding: 50px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-family: "Montserrat", sans-serif;
+  font-weight: 300;
   color: white;
-  background: rgb(137, 130, 255);
-  background: linear-gradient(24deg, rgb(79, 68, 255) 0%, rgb(167, 83, 255) 33%, rgb(253, 0, 255) 100%);
+  height: 100vh;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-h1,
 h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 18px;
+  display: none;
+}
+
+h2,
+h3 {
+  font-weight: 300;
   text-align: center;
 }
-h1::-moz-selection, h2::-moz-selection {
-  background: rgb(255, 94, 217);
+h2::-moz-selection, h3::-moz-selection {
+  background: #acbf44;
 }
-h1::selection,
-h2::selection {
-  background: rgb(255, 94, 217);
+h2::selection,
+h3::selection {
+  background: #acbf44;
 }
 
-h2 {
-  display: none;
+input {
+  color: #fff;
 }
 
 button {
   padding: 10px 20px;
   color: white;
   font-family: "Montserrat", sans-serif;
+  font-weight: 300;
   text-transform: uppercase;
   border: 1px solid transparent;
   border-radius: 15px;
@@ -45,10 +67,10 @@ button {
   transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
 }
 button::-moz-selection {
-  background: rgb(255, 94, 217);
+  background: #acbf44;
 }
 button::selection {
-  background: rgb(255, 94, 217);
+  background: #acbf44;
 }
 button:hover {
   -webkit-box-shadow: 0 0px 5px 2px rgb(255, 255, 255);
@@ -58,6 +80,13 @@ button:hover {
 .container {
   max-width: 500px;
   margin: 0 auto;
+  padding: 20px 30px;
+  border: 1px solid white;
+  -webkit-box-shadow: 0 0px 60px 40px rgb(0, 0, 0);
+          box-shadow: 0 0px 60px 40px rgb(0, 0, 0);
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(10px) brightness(50%);
+          backdrop-filter: blur(10px) brightness(50%);
 }
 
 .progress-bar {
@@ -68,7 +97,7 @@ button:hover {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 60px;
-  margin-top: 30px;
+  margin: 30px 60px;
 }
 .progress-bar-step {
   display: -webkit-box;
@@ -80,35 +109,35 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 52px;
-  height: 52px;
-  font-size: 26px;
-  border: 2px solid white;
+  width: 25px;
+  height: 25px;
+  font-size: 10px;
+  border: 1px solid white;
   border-radius: 50%;
   position: relative;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .progress-bar-step-valid {
-  border: 2px solid rgb(255, 94, 217);
-  background-color: rgb(255, 94, 217);
-  -webkit-box-shadow: 0 0px 23px 11px rgb(255, 255, 255);
-          box-shadow: 0 0px 23px 11px rgb(255, 255, 255);
+  border: 2px solid #acbf44;
+  background-color: #acbf44;
+  -webkit-box-shadow: 0 0px 15px 5px rgb(255, 255, 255);
+          box-shadow: 0 0px 15px 5px rgb(255, 255, 255);
 }
 .progress-bar-step:not(:last-child)::after {
   content: "";
   position: absolute;
   width: 60px;
-  height: 3px;
+  height: 1px;
   background-color: white;
   right: -63px;
-  bottom: 23px;
+  bottom: 12px;
 }
 .progress-bar-step::-moz-selection {
-  background: rgb(255, 94, 217);
+  background: #acbf44;
 }
 .progress-bar-step::selection {
-  background: rgb(255, 94, 217);
+  background: #acbf44;
 }
 
 .form {
@@ -119,15 +148,9 @@ button:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 15px;
-  margin-top: 50px;
-  padding: 50px;
+  gap: 10px;
   max-width: 500px;
   width: 100%;
-  border: 1px solid white;
-  -webkit-box-shadow: 0 0px 15px 5px rgb(255, 255, 255);
-          box-shadow: 0 0px 15px 5px rgb(255, 255, 255);
-  border-radius: 20px;
 }
 .form-group {
   display: -webkit-box;
@@ -150,20 +173,21 @@ button:hover {
       justify-content: space-around;
   margin-top: 20px;
 }
-.form-group-btns-sign-in {
+.form-group-btns-right {
   border: 1px solid white;
 }
 .form label {
-  margin-bottom: 3px;
+  margin-left: 15px;
+  font-size: 12px;
 }
 .form label::-moz-selection {
-  background: rgb(255, 94, 217);
+  background: #acbf44;
 }
 .form label::selection {
-  background: rgb(255, 94, 217);
+  background: #acbf44;
 }
 .form input {
-  padding: 10px 15px;
+  padding: 5px 15px;
   border: 1px solid transparent;
   border-radius: 15px;
   background-color: rgba(110, 110, 110, 0.2);
@@ -202,11 +226,23 @@ button:hover {
   outline: none;
 }
 .form input::-moz-selection {
-  background: rgb(255, 94, 217);
+  background: #acbf44;
 }
 .form input::selection {
-  background: rgb(255, 94, 217);
+  background: #acbf44;
 }
 .form input:valid {
-  background-color: white;
+  border: 1px solid #fff;
+}
+
+.container-successful {
+  display: none;
+}
+
+.password-container {
+  display: none;
+}
+
+.adress-container {
+  display: none;
 }/*# sourceMappingURL=main.css.map */
