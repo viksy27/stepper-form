@@ -47,10 +47,6 @@ h3::selection {
   background: #acbf44;
 }
 
-input {
-  color: #fff;
-}
-
 button {
   padding: 10px 20px;
   color: white;
@@ -77,7 +73,8 @@ button:hover {
           box-shadow: 0 0px 5px 2px rgb(255, 255, 255);
 }
 
-.container {
+.container,
+.successful-message {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px 30px;
@@ -151,6 +148,8 @@ button:hover {
   gap: 10px;
   max-width: 500px;
   width: 100%;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
 }
 .form-group {
   display: -webkit-box;
@@ -188,6 +187,7 @@ button:hover {
 }
 .form input {
   padding: 5px 15px;
+  color: #fff;
   border: 1px solid transparent;
   border-radius: 15px;
   background-color: rgba(110, 110, 110, 0.2);
@@ -235,14 +235,15 @@ button:hover {
   border: 1px solid #fff;
 }
 
-.container-successful {
-  display: none;
+.password-hint {
+  max-width: 315px;
+  margin: 0 15px 20px;
+  font-size: 10px;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
-.password-container {
-  display: none;
-}
-
-.adress-container {
+.password-form,
+.adress-form {
   display: none;
 }/*# sourceMappingURL=main.css.map */

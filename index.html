@@ -10,21 +10,21 @@
     />
     <title>Form</title>
   </head>
-  <body>
-    <div class="container container-successful">
-      <h3 class="successful-message">Your registration was successful!</h3>
-    </div>
 
-    <div class="container basic-info-container">
+  <body>
+    <h3 class="successful-message" id="successful">
+      Your registration was successful!
+    </h3>
+    <div class="container">
       <h2 class="title">Sign Up</h2>
 
       <div class="progress-bar">
         <p class="progress-bar-step step-1">1</p>
-        <p class="progress-bar-step">2</p>
-        <p class="progress-bar-step">3</p>
+        <p class="progress-bar-step step-2">2</p>
+        <p class="progress-bar-step step-3">3</p>
       </div>
 
-      <form action="#" method="GET" class="form basic-info-form">
+      <form class="form basic-info-form" id="basic-info">
         <div class="form-group">
           <label for="name">Username</label>
           <input
@@ -57,31 +57,24 @@
             id="phone"
             minlength="12"
             maxlength="13"
-            pattern="^\+38\d{10}$"
-            placeholder="+38"
+            pattern="^\+380\d{9}$"
+            placeholder="+380"
             required
           />
         </div>
 
         <div class="form-group form-group-btns">
-          <button type="reset" class="form-group-btns-left">Reset</button>
-          <button type="button" class="form-group-btns-to-password">
+          <button type="reset">Reset</button>
+          <button
+            type="submit"
+            class="form-group-btns-right from-basic-to-password"
+          >
             Next
           </button>
         </div>
       </form>
-    </div>
 
-    <div class="container password-container">
-      <h2 class="title">Sign Up</h2>
-
-      <div class="progress-bar">
-        <p class="progress-bar-step step-1-password step-1-password">1</p>
-        <p class="progress-bar-step step-2-password">2</p>
-        <p class="progress-bar-step">3</p>
-      </div>
-
-      <form action="#" method="GET" class="form">
+      <form action="#" method="GET" id="password" class="form password-form">
         <div class="form-group">
           <label for="password-1">Password</label>
           <input
@@ -95,6 +88,10 @@
             required
           />
         </div>
+        <p class="password-hint">
+          The password must contain a minimum of 6 characters (lower case, upper
+          case, digit, special character)
+        </p>
 
         <div class="form-group">
           <label for="password-2">Please confirm your password</label>
@@ -125,25 +122,15 @@
           </button>
         </div>
       </form>
-    </div>
 
-    <div class="container adress-container">
-      <h2 class="title">Sign Up</h2>
-
-      <div class="progress-bar">
-        <p class="progress-bar-step step-1-adress step-1-password">1</p>
-        <p class="progress-bar-step step-2-adress">2</p>
-        <p class="progress-bar-step step-3-adress">3</p>
-      </div>
-
-      <form action="#" method="GET" class="form">
+      <form action="#" method="GET" id="adress" class="form adress-form">
         <div class="form-group">
           <label for="country">Country</label>
           <input
             type="text"
             name="country"
             id="country"
-            pattern="^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ]{2,}$"
+            pattern="^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ]{3,}$"
             placeholder="Ukraine"
             required
           />
@@ -155,7 +142,7 @@
             type="text"
             name="city"
             id="city"
-            pattern="^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ]{2,}$"
+            pattern="^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ]{1,}$"
             placeholder="Dnipro"
             required
           />
@@ -177,7 +164,7 @@
         </div>
       </form>
     </div>
-
-    <script src="main.js"></script>
   </body>
+
+  <script src="main.js"></script>
 </html>

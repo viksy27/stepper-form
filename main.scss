@@ -37,10 +37,6 @@ h3 {
   }
 }
 
-input {
-  color: #fff;
-}
-
 button {
   padding: 10px 20px;
   color: white;
@@ -62,7 +58,8 @@ button {
   }
 }
 
-.container {
+.container,
+.successful-message {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px 30px;
@@ -118,6 +115,7 @@ button {
   gap: 10px;
   max-width: 500px;
   width: 100%;
+  transition: all 3s ease;
 
   &-group {
     display: flex;
@@ -146,6 +144,7 @@ button {
 
   & input {
     padding: 5px 15px;
+    color: #fff;
     border: 1px solid transparent;
     border-radius: 15px;
     background-color: rgba(110, 110, 110, 0.2);
@@ -171,14 +170,14 @@ button {
   }
 }
 
-.container-successful {
-  display: none;
+.password-hint {
+  max-width: 315px;
+  margin: 0 15px 20px;
+  font-size: 10px;
+  transition: opacity 0.3s ease;
 }
 
-.password-container {
-  display: none;
-}
-
-.adress-container {
+.password-form,
+.adress-form {
   display: none;
 }
