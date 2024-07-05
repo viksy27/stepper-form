@@ -57,25 +57,11 @@
             id="phone"
             minlength="12"
             maxlength="13"
-            pattern="^\+380\d{9}$"
+            pattern="^\+\d{12}$"
             value="+380"
             required
           />
         </div>
-
-        <!-- <div class="form-group">
-          <label for="phone">Phone</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            minlength="12"
-            maxlength="13"
-            pattern="^\+380\d{9}$"
-            placeholder="+380"
-            required
-          />
-        </div> -->
 
         <div class="form-group form-group-btns">
           <button type="reset">Reset</button>
@@ -97,11 +83,12 @@
             id="password-1"
             minlength="6"
             maxlength="16"
-            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}"
+            pattern="^(?=.*[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\d!@#$%^&*]{6,}$"
             placeholder="urKL27st!"
             required
           />
         </div>
+
         <p class="password-hint">
           The password must contain a minimum of 6 characters (lower case, upper
           case, digit, special character)
@@ -115,7 +102,7 @@
             id="password-2"
             minlength="6"
             maxlength="16"
-            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}"
+            pattern="^(?=.*[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\d!@#$%^&*]{6,}$"
             placeholder="urKL27st!"
             required
           />
@@ -144,7 +131,7 @@
             type="text"
             name="country"
             id="country"
-            pattern="^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ]{3,}$"
+            pattern="^([a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ]+\s?){3,}$"
             placeholder="Ukraine"
             required
           />
@@ -156,7 +143,7 @@
             type="text"
             name="city"
             id="city"
-            pattern="^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ]{1,}$"
+            pattern="^([a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ]+\s?){3,}$"
             placeholder="Dnipro"
             required
           />

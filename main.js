@@ -65,7 +65,9 @@ adressForm.addEventListener('submit', (e) => {
 const formatPhoneNumber = () => {
   let value = phoneInput.value;
 
-  value.startsWith('+380')
+  if(!value.startsWith('+380'))
+    value.startsWith('+380')
+
   phoneInput.value = value;
 }
  
