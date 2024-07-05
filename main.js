@@ -1,4 +1,5 @@
 const basicForm = document.querySelector('.basic-info-form'),
+  phoneInput = document.getElementById('phone'),
   passwordForm = document.querySelector('.password-form'),
   adressForm = document.querySelector('.adress-form'),
   passwordHint = document.querySelector('.password-hint')
@@ -11,6 +12,7 @@ const basicForm = document.querySelector('.basic-info-form'),
   successMessage = document.querySelector('.successful-message')
 
 basicForm.addEventListener('input', () => {
+
   if ( basicForm.checkValidity() ) {
     stepOne.classList.add('progress-bar-step-valid')
   } else {
@@ -45,6 +47,7 @@ passwordForm.addEventListener('submit', (e) => {
 })
 
 adressForm.addEventListener('input', () => {
+
   if ( adressForm.checkValidity() ) {
     stepThree.classList.add('progress-bar-step-valid')
   } else {
@@ -58,6 +61,28 @@ adressForm.addEventListener('submit', (e) => {
   e.preventDefault()
   showSuccess()
 })
+
+const formatPhoneNumber = () => {
+  let value = phoneInput.value;
+
+  value.startsWith('+380')
+  phoneInput.value = value;
+}
+ 
+const allowOnlyNumbers = (e) => {
+  const charCode = e.which ? e.which : e.keyCode;
+
+  if (
+    (charCode > 31 && (charCode < 48 || charCode > 57) && 
+    (charCode < 96 || charCode > 105)) && 
+    charCode !== 8 && charCode !== 37 && charCode !== 39 
+  ) {
+    e.preventDefault()
+  }
+}
+
+phoneInput.addEventListener('input', formatPhoneNumber)
+phoneInput.addEventListener('keydown', allowOnlyNumbers)
 
 const showBasicInfoForm = (hideForm) => {
   hideForm.style.display = 'none'
